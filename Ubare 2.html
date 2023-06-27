@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ubare Mango Services</title>
+  <style>
+    /* Body styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #fcfbf7;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      color: #333;
+      margin: 0;
+    }
+
+    /* Navigation styles */
+    nav {
+      background-color: #333;
+      color: #FFF;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #FFF;
+      text-decoration: none;
+      padding: 5px 10px;
+    }
+
+    /* Section styles */
+    section {
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    section h2 {
+      color: #333;
+    }
+
+    /* Services styles */
+    #services ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #services li {
+      width: 300px;
+      margin: 20px;
+      padding: 20px;
+      background-color: #F9F9F9;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    #services h3 {
+      color: #333;
+      margin-top: 0;
+    }
+
+    /* Button styles */
+    .button {
+      display: inline-block;
+      background-color: #FFCA28;
+      color: #333;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #FFB300;
+    }
+
+    /* Contact form styles */
+    #contact form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    #contact form label {
+      margin-bottom: 10px;
+    }
+
+    #contact form input[type="text"],
+    #contact form input[type="email"],
+    #contact form textarea {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #999;
+      border-radius: 4px;
+    }
+
+    #contact form input[type="submit"] {
+      background-color: #FFCA28;
+      color: #333;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    #contact form input[type="submit"]:hover {
+      background-color: #FFB300;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #333;
+      color: #FFF;
+      text-align: center;
+      padding: 10px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer div {
+      margin-top: 20px;
+    }
+
+    footer div img {
+      width: 30px;
+      margin-right: 10px;
+    }
+  </style>
+  <script>
+    // JavaScript code goes here
+
+    // Smooth scrolling when clicking on navigation links
+    window.addEventListener('DOMContentLoaded', function() {
+      var navLinks = document.querySelectorAll('nav ul li a');
+      for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = this.getAttribute('href');
+          var targetElement = document.querySelector(target);
+          window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
+
+    // Add class to navigation items on scroll
+    window.addEventListener('scroll', function() {
+      var sections = document.querySelectorAll('section');
+      var navLinks = document.querySelectorAll('nav ul li a');
+      var currentSection = '';
+
+      for (var i = 0; i < sections.length; i++) {
+        var sectionTop = sections[i].offsetTop;
+        var sectionHeight = sections[i].offsetHeight;
+
+        if (window.pageYOffset >= sectionTop - sectionHeight / 2) {
+          currentSection = sections[i].getAttribute('id');
+        }
+      }
+
+      for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].classList.remove('active');
+        if (navLinks[i].getAttribute('href').slice(1) === currentSection) {
+          navLinks[i].classList.add('active');
+        }
+      }
+    });
+
+    // Form submission event
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      var formData = new FormData(this);
+      
+      // Send form data to the server using a POST request
+      fetch('https://example.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(response) {
+        if (response.ok) {
+          // Handle successful response
+          console.log('Form submitted successfully');
+        } else {
+          // Handle error response
+          console.log('Form submission failed');
+        }
+      })
+      .catch(function(error) {
+        // Handle network errors
+        console.log('An error occurred', error);
+      });
+    });
+     // Login button event
+     document.querySelector('#login-button').addEventListener('click', function() {
+      // Handle login button click event
+      console.log('Login button clicked');
+    });
+  </script>
+</head>
+<body>
+  <header>
+ <marquee>   <h1>Welcome to Ismail Ubare Mango Services!!</h1> </marquee>
+    <img src="C:\Users\rahil\Downloads\istockphotomango-1172115256-612x612.jpg">
+
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#varieties">Mango Varieties</a></li>
+      <li><a href="#blog">Mango Blog</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p><b>A group which was founded by Late. Mr. Ismail Ubare in 1960 , and currently managed by their younger son Mr. Arif Ismail Ubare.<br>
+        The Ubare Mango Services hold its key value to deliver fresh mango to its customer that never compromises the quality!!
+    </b></p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>
+        <h3>Wholesale Distribution</h3>
+        <!-- Add description of wholesale distribution service -->
+        <a href="#contact" class="button">Get a Quote</a>
+      </li>
+      <li>
+        <h3>Export</h3>
+        <!-- Add description of export service -->
+        <a href="#contact" class="button">Contact Us</a>
+      </li>
+      <li>
+        <h3>Mango Tree Plantation</h3>
+        <!-- Add description of tree plantation service -->
+        <a href="#contact" class="button">Learn More</a>
+      </li>
+      <li>
+        <h3>Consultancy</h3>
+        <!-- Add description of consultancy service -->
+        <a href="#contact" class="button">Request Consultation</a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="varieties">
+    <h2>Mango Varieties</h2>
+    <!-- Add your mango varieties content here -->
+  </section>
+
+  <section id="blog">
+    <h2>Mango Blog</h2>
+    <!-- Add your blog content here -->
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <!-- Add your gallery content here -->
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <!-- Add your contact form and details here -->
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea><br>
+
+      <input type="submit" value="Submit" class="button">
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 Mango Services. All rights reserved.</p>
+    <div>
+      <a href="https://www.facebook.com/mangoservices" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+      <a href="https://www.twitter.com/mangoservices" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+      <a href="https://www.instagram.com/mangoservices" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+    </div>
+  </footer>
+</body>
+</html>
